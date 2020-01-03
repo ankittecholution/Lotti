@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/click"
+<androidx.constraintlayout.motion.widget.MotionLayout
+    android:id="@+id/motion_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:airbnb="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:airbnb="http://schemas.android.com/apk/res-auto"
+    app:layoutDescription="@xml/step7"
+    app:motionDebug="SHOW_PATH"
     android:background="@android:color/white"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/stop"
-        android:text="stop"
-        android:layout_marginStart="40dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="stop"
+        airbnb:layout_constraintStart_toStartOf="parent"
+        airbnb:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="start"
-        android:layout_marginEnd="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        airbnb:layout_constraintEnd_toEndOf="parent"
+        airbnb:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/test"
-        airbnb:lottie_fileName="try.json"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         airbnb:lottie_loop="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        airbnb:layout_constraintBottom_toBottomOf="parent"
+        airbnb:layout_constraintEnd_toEndOf="parent"
+        airbnb:layout_constraintStart_toStartOf="parent"
+        airbnb:layout_constraintTop_toTopOf="parent"
+        airbnb:lottie_fileName="try.json" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        airbnb:layout_constraintBottom_toBottomOf="parent"
+        airbnb:layout_constraintEnd_toEndOf="parent"
+        airbnb:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        airbnb:layout_constraintEnd_toEndOf="parent"
+        airbnb:layout_constraintStart_toStartOf="parent"
+        airbnb:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

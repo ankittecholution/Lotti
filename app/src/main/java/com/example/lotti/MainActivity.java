@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.constraintlayout.motion.widget.MotionLayout;
+
 import com.airbnb.lottie.LottieAnimationView;
 
 import java.io.IOException;
@@ -26,16 +28,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RelativeLayout r = findViewById(R.id.click);
-
         thumb_down = findViewById(R.id.test);
+        final MotionLayout motionLayout = findViewById(R.id.motion_layout);
 //        r.addView(thumb_down);
 //        thumb_down.setImageAssetsFolder("images/");
-        thumb_down.loop(true);
+//        thumb_down.loop(true);
         findViewById(R.id.stop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 thumb_down.cancelAnimation();
+                motionLayout.transitionToStart();
             }
         });
 
@@ -43,6 +45,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 thumb_down.playAnimation();
+
+                motionLayout.transitionToEnd();
+
             }
         });
 
